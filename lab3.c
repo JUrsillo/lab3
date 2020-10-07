@@ -22,19 +22,13 @@ int symptomQueue[QUEUE_SIZE];
 int count = 0;
 int turnedAway = 0;
 
-int totalAdd = 0;
-int totalNext = 0;
-int skip = 0;
 
 void add() {
 	
-totalAdd++;
 
 	if (count == QUEUE_SIZE) {
 
-//		printf("The list is currently full!\n");
-		turnedAway++;
-//		printf("Turned away: %d\n", turnedAway);
+		turnedAway++;		
 		
 	} else {
 
@@ -56,14 +50,12 @@ void next() {
 		
 	if (count == 0) {
 
-		skip++;
 		return;
 			
 	}
 
 	int i;
 	
-totalNext++;
 		
 	double patientWait = (((double)rand())/(double)RAND_MAX * 29.0) + 1;
 
@@ -169,22 +161,8 @@ int main() {
 		experiment();		
 
 	}	
-		
-/*	for (i = 0; i < NUM_GENDERS; i++) {
-
-		printf("%.2f & %s\n", waitByGender[i], gender[i]);
-
-	}
-
-	for (i = 0; i < NUM_SYMPTOMS; i++) {
-
-		printf("%.2f\n", waitBySymptom[i]);
-		printf("%d\n", countBySymptom[i]);
-		
-	}
-*/	
+			
 	printTable();
-	//printf("%dA %dN %dS", totalAdd, totalNext, skip);
 	printf("\nTurned Away: %d\n", turnedAway);
         return 0;
 }
